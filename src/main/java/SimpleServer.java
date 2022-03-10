@@ -8,6 +8,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+
 public class SimpleServer {
 
   public static void main(String[] args) throws IOException {
@@ -43,6 +44,16 @@ public class SimpleServer {
             }
             line = in.readLine();
           }
+
+          //read body using the StringBuilder
+          StringBuilder print_body = new StringBuilder();
+          while(in.ready()){
+            print_body.append((char) in.read());
+
+          }
+          System.out.println("body: "+print_body);
+
+
           System.out.println("----------REQUEST END---------\n\n");
         } catch (IOException e) {
           System.out.println("Error reading");
